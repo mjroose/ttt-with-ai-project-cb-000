@@ -18,6 +18,6 @@ class Board
   end
 
   def position(index)
-    self.cells(index)
+    self.cells(index.to_i)
   end
 end
