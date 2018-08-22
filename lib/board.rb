@@ -39,6 +39,7 @@ class Board
   end
 
   def update(input, player)
-    
+    index = input.to_i - 1
+    self.cells[index] = player
   end
 end
