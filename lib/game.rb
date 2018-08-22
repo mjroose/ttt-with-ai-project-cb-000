@@ -31,7 +31,11 @@ class Game
       player_2_wins = (player_2_cells + combo).uniq.count == player_2_cells.count
       winning_combo = combo if player_1_wins || player_2_wins
     end
-    
+
     winning_combo
+  end
+
+  def draw?
+    self.board.turn_count == 9 && won? == false
   end
 end
