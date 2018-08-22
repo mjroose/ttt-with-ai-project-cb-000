@@ -50,6 +50,6 @@ class Game
   end
 
   def turn
-
+    self.current_player.move
   end
 end
