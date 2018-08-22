@@ -7,4 +7,8 @@ class Game
     @player_2 = player_2
     @board = board
   end
+
+  def current_player
+    self.board.turn_count.odd? ? self.player_1 : self.player_2
+  end
 end
