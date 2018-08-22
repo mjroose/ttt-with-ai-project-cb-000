@@ -20,4 +20,8 @@ class Board
   def position(index)
     self.cells[index.to_i - 1]
   end
+
+  def full?
+    self.cells.select {|value| value != " "}.count == 9
+  end
 end
