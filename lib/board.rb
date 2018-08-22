@@ -16,4 +16,8 @@ class Board
     puts "-----------"
     puts " #{self.cells[6]} | #{self.cells[7]} | #{self.cells[8]} "
   end
+
+  def position(index)
+    self.cells(index)
+  end
 end
