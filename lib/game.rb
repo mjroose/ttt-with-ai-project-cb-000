@@ -5,6 +5,8 @@ class Game
   def initialize(player_1 = Players::Human.new("X"), player_2 = Players::Human.new("O"), board = Board.new)
     @player_1 = player_1
     @player_2 = player_2
+    @player_1.opponent = player_2
+    @player_2.opponent = player_1
     @board = board
   end
 
@@ -30,7 +32,7 @@ class Game
   end
 
   def winning_combo?(combo, player)
-    positions = find_player_positions(player)
+    positions = player.find_player_positions(self.board)
     (positions + combo).uniq.count == positions.count
   end
 
@@ -50,6 +52,7 @@ class Game
   end
 
   def turn
+    self.board.display
     input = ""
     while !self.board.valid_move?(input)
       input = self.current_player.move(self.board)
@@ -62,6 +65,7 @@ class Game
       self.turn
     end
 
+    self.board.display
     if self.won?
       puts "Congratulations #{self.winner}!"
     else
