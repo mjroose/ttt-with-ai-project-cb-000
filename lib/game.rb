@@ -18,6 +18,9 @@ class Game
       positions << index if value == player.token
     end
 
+    positions
+  end
+
   def won?
     player_1_cells = []
     self.board.cells.each_with_index do |value, index|
