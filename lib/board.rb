@@ -27,4 +27,5 @@ class Board
 
   def turn_count
     self.cells.select {|value| value != " "}.count
+  end
 end
