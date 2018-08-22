@@ -35,6 +35,11 @@ class Game
     winning_combo
   end
 
+  def winning_combo?(combo, player)
+    positions = find_player_positions(player)
+    (positions + combo).uniq.count == positions.count
+  end
+  
   def draw?
     self.board.turn_count == 9 && !won?
   end
