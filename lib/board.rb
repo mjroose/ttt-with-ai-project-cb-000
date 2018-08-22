@@ -34,6 +34,7 @@ class Board
   end
 
   def valid_move?(input)
-    input >= 1 && input <= 9 && !taken?(input)
+    input_i = input.to_i
+    input_i >= 1 && input_i <= 9 && !taken?(input)
   end
 end
