@@ -11,4 +11,8 @@ class Game
   def current_player
     self.board.turn_count.even? ? self.player_1 : self.player_2
   end
+
+  def won?
+    
+  end
 end
