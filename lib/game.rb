@@ -44,7 +44,6 @@ class Game
 
   def winner
     combo = self.won?
-    winner = nil
     if combo
       winning_combo?(combo, self.player_1) ? player_1.token : player_2.token
     end
