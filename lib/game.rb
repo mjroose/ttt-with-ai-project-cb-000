@@ -48,4 +48,8 @@ class Game
       winning_combo?(combo, self.player_1) ? player_1.token : player_2.token
     end
   end
+
+  def turn
+
+  end
 end
