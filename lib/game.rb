@@ -13,6 +13,20 @@ class Game
   end
 
   def won?
+    player_1_cells = []
+    self.board.cells.each_with_index do |value, index|
+      player_1_cells << index if value == self.player_1.token
+    end
+
+    player_2_cells = []
+    self.board.cells.each_with_index do |value, index|
+      player_2_cells << index if value == self.player_2.token
+    end
     
+    winning_combo = []
+    if self.board.turn_count.odd?
+      
+      WIN_COMBINATIONS.each do |combo|
+        
   end
 end
