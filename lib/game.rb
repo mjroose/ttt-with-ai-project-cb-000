@@ -22,24 +22,18 @@ class Game
   end
 
   def won?
-    player_1_cells = self.find_player_positions(self.player_1)
-    player_2_cells = self.find_player_positions(self.player_2)
     winning_combo = false
-
     WIN_COMBINATIONS.each do |combo|
-      player_1_wins = (player_1_cells + combo).uniq.count == player_1_cells.count
-      player_2_wins = (player_2_cells + combo).uniq.count == player_2_cells.count
-      winning_combo = combo if player_1_wins || player_2_wins
+      winning_combo = combo if winning_combo?(combo, self.player_1) || winning_combo?(combo, self.player_2)
     end
-
     winning_combo
   end
 
   def winning_combo?(combo, player)
     positions = find_player_positions(player)
-    (positions + combo).uniq.count == positions.count
+    (positions + combo).uniq.count == positions.count ? player : false
   end
-  
+
   def draw?
     self.board.turn_count == 9 && !won?
   end
