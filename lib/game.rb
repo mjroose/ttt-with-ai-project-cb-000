@@ -23,7 +23,7 @@ class Game
       player_2_cells << index if value == self.player_2.token
     end
 
-    winning_combo = []
+    winning_combo = false
     WIN_COMBINATIONS.each do |combo|
       test_player_1 = (player_1_cells + combo).uniq.count == player_1_cells.count
       test_player_2 = (player_2_cells + combo).uniq.count == player_2_cells.count
