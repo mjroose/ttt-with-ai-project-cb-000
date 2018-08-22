@@ -50,6 +50,10 @@ class Game
   end
 
   def turn
-    self.current_player.move
+    input = ""
+    while !input.valid_move?
+      input = self.current_player.move
+    end
+    self.board.update(input, self.current_player)
   end
 end
