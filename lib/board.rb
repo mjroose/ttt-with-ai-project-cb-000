@@ -38,6 +38,7 @@ class Board
     input_i >= 1 && input_i <= 9 && !taken?(input)
   end
 
-  def update
+  def update(input, player)
+    
   end
 end
