@@ -12,6 +12,12 @@ class Game
     self.board.turn_count.even? ? self.player_1 : self.player_2
   end
 
+  def find_player_positions(player)
+    positions = []
+    self.board.cells.each_with_index do |value, index|
+      positions << index if value == player.token
+    end
+
   def won?
     player_1_cells = []
     self.board.cells.each_with_index do |value, index|
