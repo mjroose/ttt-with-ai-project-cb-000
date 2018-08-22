@@ -22,12 +22,11 @@ class Game
     self.board.cells.each_with_index do |value, index|
       player_2_cells << index if value == self.player_2.token
     end
-    binding.pry
-    
+
     winning_combo = []
     WIN_COMBINATIONS.each do |combo|
-      test_player_1 = (player_1_cells + combo).uniq.count == 9
-      test_player_2 = (player_2_cells + combo).uniq.count == 9
+      test_player_1 = (player_1_cells + combo).uniq.count == player_1_cells.count
+      test_player_2 = (player_2_cells + combo).uniq.count == player_2_cells.count
       winning_combo = combo if test_player_1 || test_player_2
     end
     winning_combo
