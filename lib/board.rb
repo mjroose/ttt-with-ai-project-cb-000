@@ -32,4 +32,8 @@ class Board
   def taken?(index)
     self.position(index) != " "
   end
+
+  def valid_move?(input)
+    input >= 1 && input <= 9 && !taken?(input)
+  end
 end
