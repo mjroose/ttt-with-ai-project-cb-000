@@ -31,7 +31,7 @@ class Game
 
   def winning_combo?(combo, player)
     positions = find_player_positions(player)
-    (positions + combo).uniq.count == positions.count ? player : false
+    (positions + combo).uniq.count == positions.count
   end
 
   def draw?
@@ -40,5 +40,13 @@ class Game
 
   def over?
     draw? || won?
+  end
+
+  def winner
+    combo = self.won?
+    winner = nil
+    if combo
+      winning_combo?(combo, self.player_1) ? player_1.token : player_2.token
+    end
   end
 end
