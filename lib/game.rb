@@ -22,22 +22,16 @@ class Game
   end
 
   def won?
-    player_1_cells = []
-    self.board.cells.each_with_index do |value, index|
-      player_1_cells << index if value == self.player_1.token
-    end
-
-    player_2_cells = []
-    self.board.cells.each_with_index do |value, index|
-      player_2_cells << index if value == self.player_2.token
-    end
-
+    player_1_cells = self.find_player_positions(self.player_1)
+    player_2_cells = self.find_player_positions(self.player_2)
     winning_combo = false
+
     WIN_COMBINATIONS.each do |combo|
-      test_player_1 = (player_1_cells + combo).uniq.count == player_1_cells.count
-      test_player_2 = (player_2_cells + combo).uniq.count == player_2_cells.count
-      winning_combo = combo if test_player_1 || test_player_2
+      player_1_wins = (player_1_cells + combo).uniq.count == player_1_cells.count
+      player_2_wins = (player_2_cells + combo).uniq.count == player_2_cells.count
+      winning_combo = combo if player_1_wins || player_2_wins
     end
+    
     winning_combo
   end
 end
