@@ -22,7 +22,7 @@ class Board
   end
 
   def full?
-    self.cells.select {|value| value != " "}.count == 9
+    self.turn_count == 9
   end
 
   def turn_count
